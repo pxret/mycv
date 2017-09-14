@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>个人简历</title>
+    <!--jq文件-->
+    <script  src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--统计图插件-->
+    <script src="https://cdn.bootcss.com/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <style type="text/css">
+    .top{overflow: hidden;}
+    h3{border-top:1px solid #CCC;}
+    .myinfo div{margin:5px 0px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top"><h1 style="text-align:center;height:90px;line-height:75px">简历</h1></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>个人资料</h3>
+                <div class="col-xs-8 col-sm-10 myinfo" style="padding:0">
+                    <div class="col-xs-12 col-sm-4">姓名:彭薪任</div>
+                    <div class="col-xs-12 col-sm-4">性别:男</div>
+                    <div class="col-xs-12 col-sm-4">出生年月:1996-6-3</div>
+                    <div class="col-xs-12 col-sm-4">籍贯:广东汕尾</div>
+                    <div class="col-xs-12 col-sm-4">学历:专科</div>
+                    <div class="col-xs-12 col-sm-4">专业:计算机程序设计</div>
+                    <div class="col-xs-12 col-sm-4">毕业院校:广东白云</div>
+                    <div class="col-xs-12 col-sm-4">手机:13929339296</div>
+                    <div class="col-xs-12 col-sm-4">邮箱:pxret@qq.com</div>
+                </div>
+                <div class="col-xs-4 col-sm-2"><img class="img-responsive" src="headpic/head.png" height="190" width="125" alt=""></div>
+            </div>
+            <div class="col-xs-12">
+                <h3>技能状况</h3>
+                <div class="col-xs-12 col-sm-6"><canvas id="bts"></canvas></div>
+                <div class="col-xs-12 col-sm-6"><canvas id="wd"></canvas></div>
+            </div>
+            <div class="col-xs-12">
+                <h3>个人经历</h3>
+                <p>深圳华人街电子商务有限公司负责编写后台和前台网站</p>
+                <p>深圳爱尚街贸易有限公司对商城网站进行二次开发</p>
+            </div>
+            <div class="col-xs-12">
+                <h3>自我评价</h3>
+                <p>熟悉PHP、Java语言，工作期间使用PHP较多；</p>
+                <p>给公司搭建过window或linux为系统的服务器;</p>
+                <p>熟悉前端H5、CSS3的编写，曾使用框架Thinkphp、Yii对项目进行开发。</p>
+            </div>
+            <div class="col-xs-12">
+                <h3>曾经做过的项目</h3>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="thumbnail">
+                      <img src="img/project/asj.jpg" class="img-responsive">
+                      <div class="caption">
+                        <h3>爱尚街商城</h3>
+                        <p>一个基于微信平台，二次开发的商城</p>
+                        <p><a href="#" class="btn btn-primary" role="button">项目地址</a> <a href="#" class="btn btn-default" role="button">详细描述</a></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var chartColors=new Object;
+    chartColors.red='rgb(255, 99, 132)';
+
+    window.onload = function() {
+        var color = Chart.helpers.color;
+        var ctx = document.getElementById("bts").getContext("2d");
+        var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        10,
+                        30,
+                        20,
+                        20,
+                        10,
+                    ],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                    ],
+                    label: '后端'
+                }],
+                labels: [
+                    "Java",
+                    "PHP",
+                    "微信开发",
+                    "thinkphp",
+                    "Yii"
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: '后端'
+                },
+            }
+        };
+        window.myPie = new Chart(ctx, config);
+        var ctx = document.getElementById("wd").getContext("2d");
+        config = {
+        type: 'radar',
+        data: {
+                labels: ["bootstrap", "AngularJS", "jQuery", "nodeJs"],
+                datasets: [{
+                    label: "前端",
+                    backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+                    borderColor: window.chartColors.red,
+                    pointBackgroundColor: window.chartColors.red,
+                    data: [
+                        80,
+                        70,
+                        90,
+                        20
+                    ]
+                }]
+            },
+            options: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: false,
+                    text: 'Chart.js '
+                },
+                scale: {
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }
+            }
+        };
+        new Chart(ctx, config);
+    };
+    </script>
+</body>
+</html>
